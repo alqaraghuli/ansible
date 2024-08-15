@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="refresh" content="0;url= 404_-_Page_not_found....html" /></head><body></body></html>---
+- name: Deploy Apache on RedHat-based hosts like Fedora
+  dnf:
+    name: httpd
+    state: present
+  when: ansible_os_family == 'RedHat'
+ 
+- name: Start Apache on RedHat-based hosts like Fedora
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+  when: ansible_os_family == 'RedHat'
